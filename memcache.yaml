@@ -12,7 +12,7 @@
       name: "Add stable chart repo"
     - 
       community.kubernetes.helm: 
-        chart_ref: stable/grafana
+        chart_ref: "{{ application_name }}"
         name: "{{ container_name }}"
         release_namespace: default
         values: 
