@@ -8,8 +8,8 @@
     - 
       community.kubernetes.helm_repository: 
         name: stable
-        repo_url: "https://kubernetes-charts.storage.googleapis.com"
-      name: "Add stable chart repo"
+        repo_url: "{{ repo }}"
+      name: "Add chart repo"
     - 
       community.kubernetes.helm: 
         chart_ref: "{{ application_name }}"
@@ -17,4 +17,4 @@
         release_namespace: default
         values: 
           replicas: "{{ replicas }}"
-      name: "Deploy latest version of Grafana chart inside monitoring namespace with values"
+      name: "Deploy application"
