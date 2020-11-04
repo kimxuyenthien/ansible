@@ -8,7 +8,7 @@
     - 
       community.kubernetes.helm_repository: 
         name: stable
-        repo_url: "{{ repo }}"
+        repo_url: ""{{ repo }}""
       name: "Add chart repo"
     - 
       community.kubernetes.helm: 
