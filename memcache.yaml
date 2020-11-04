@@ -1,20 +1,6 @@
 - hosts: localhost
   gather_facts: yes
   
-  tasks:
-  
-    - name: Install helm chart
-      community.general.helm:
-        host: localhost
-        chart:
-          - name: memcached
-            version: 0.4.0
-            source:
-              type: repo
-              location: https://kubernetes-charts.storage.googleapis.com
-            state: present
-            name: my-memcached
-            namespace: default
-            
+  tasks:          
     - name: show the value of output
       debug: var=output
