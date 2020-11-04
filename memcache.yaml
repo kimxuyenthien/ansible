@@ -4,5 +4,17 @@
   gather_facts: yes
   
   tasks:          
-    - name: show the value of output
+    - name: init connection
       debug: var=output
+   - name: Add stable chart repo
+      community.kubernetes.helm_repository:
+        name: stable
+        repo_url: "https://kubernetes-charts.storage.googleapis.com"
+
+   - name: Deploy latest version of Grafana chart inside monitoring namespace with values
+      community.kubernetes.helm:
+        name: test
+        chart_ref: stable/grafana
+        release_namespace: monitoring
+        values:
+          replicas: 2
