@@ -1,19 +1,20 @@
-- hosts: localhost
+--- 
+- 
   become: true
   become_user: root
-  gather_facts: yes
-  
-  tasks:          
-  
-   - name: Add stable chart repo
-      community.kubernetes.helm_repository:
+  gather_facts: true
+  hosts: all
+  tasks: 
+    - 
+      community.kubernetes.helm_repository: 
         name: stable
         repo_url: "https://kubernetes-charts.storage.googleapis.com"
-
-   - name: Deploy latest version of Grafana chart inside monitoring namespace with values
-      community.kubernetes.helm:
-        name: test
+      name: "Add stable chart repo"
+    - 
+      community.kubernetes.helm: 
         chart_ref: stable/grafana
+        name: test
         release_namespace: monitoring
-        values:
+        values: 
           replicas: 2
+      name: "Deploy latest version of Grafana chart inside monitoring namespace with values"
