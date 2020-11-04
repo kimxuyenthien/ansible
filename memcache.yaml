@@ -1,6 +1,8 @@
 - hosts: localhost
   gather_facts: yes
+  
   tasks:
+  
     - name: Install helm chart
       community.general.helm:
         host: localhost
@@ -13,3 +15,6 @@
             state: present
             name: my-memcached
             namespace: default
+            
+    - name: show the value of output
+      debug: var=output
