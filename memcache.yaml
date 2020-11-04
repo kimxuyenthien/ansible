@@ -13,7 +13,6 @@
     - 
       community.kubernetes.helm: 
         chart_ref: stable/grafana
-        chart_version: "{{ chart_version }}"
         name: "{{ container_name }}"
         release_namespace: default
         values: 
