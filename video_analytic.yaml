@@ -1,0 +1,12 @@
+--- 
+- 
+  become: true
+  become_user: root
+  gather_facts: true
+  hosts: all
+  tasks: 
+    - name: Install video analytic
+      command: "{{ item }}"
+      with_items:
+            - helm fetch https://helm.ngc.nvidia.com/nvidia/charts/video-analytics-demo-0.1.5.tgz
+            - helm install video-hieutrinh video-analytics-demo-0.1.5.tgz
