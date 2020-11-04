@@ -4,8 +4,7 @@
   gather_facts: yes
   
   tasks:          
-    - name: init connection
-      debug: var=output
+  
    - name: Add stable chart repo
       community.kubernetes.helm_repository:
         name: stable
