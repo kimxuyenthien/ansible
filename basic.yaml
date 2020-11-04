@@ -1,0 +1,15 @@
+--- 
+- 
+  become: true
+  become_user: root
+  gather_facts: true
+  hosts: 127.0.0.1
+  tasks: 
+    - 
+      community.kubernetes.helm: 
+        chart_ref: "{{ application_name }}"
+        name: "{{ container_name }}"
+        release_namespace: default
+        values: 
+          replicas: "{{ replicas }}"
+      name: "Deploy application"
