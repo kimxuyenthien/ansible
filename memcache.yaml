@@ -3,7 +3,7 @@
   become: true
   become_user: root
   gather_facts: true
-  hosts: all
+  hosts: 127.0.0.1
   tasks: 
     - 
       community.kubernetes.helm_repository: 
