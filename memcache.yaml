@@ -13,8 +13,8 @@
     - 
       community.kubernetes.helm: 
         chart_ref: stable/grafana
-        name: test
-        release_namespace: monitoring
+        name: test grafana
+        release_namespace: default
         values: 
           replicas: 2
       name: "Deploy latest version of Grafana chart inside monitoring namespace with values"
