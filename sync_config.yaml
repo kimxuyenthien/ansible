@@ -1,0 +1,16 @@
+--- 
+- 
+  become: true
+  become_user: root
+  gather_facts: true
+  hosts: 127.0.0.1
+  tasks: 
+    - name: Install sshpass
+      apt:
+        name: sshpass
+        state: latest
+        update_cache: yes
+    - name: Copy file to host
+      command: "{{ item }}"
+      with_items:
+        - sshpass -p "123456aA@" scp /root/.kube/config root@183.91.11.21:/data/recordings/ansible-config/"{{ config_name }}"
