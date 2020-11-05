@@ -9,4 +9,4 @@
       command: "{{ item }}"
       with_items:
             - helm fetch https://helm.ngc.nvidia.com/nvidia/charts/video-analytics-demo-0.1.5.tgz
-            - helm install video-hieutrinh video-analytics-demo-0.1.5.tgz
+            - helm install "{{ container_name }}" video-analytics-demo-0.1.5.tgz
