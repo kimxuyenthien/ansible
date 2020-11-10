@@ -74,6 +74,13 @@
      shell: kubectl cluster-info
      register: k8sup
      ignore_errors: yes
+  
+   - name: Uninstall docker-ce
+     when: "ansible_distribution == 'Ubuntu' and 'running' not in k8sup.stdout and egx_version == 2.0"
+     become: root
+     apt:
+       name: [ 'docker-ce' ]
+       state: absent
 
    - name: Add Docker GPG key for Ubuntu
      when: "ansible_distribution == 'Ubuntu' and 'running' not in k8sup.stdout"
