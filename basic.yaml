@@ -7,8 +7,8 @@
   tasks: 
     - 
       community.kubernetes.helm: 
-        chart_ref: {{ application_name }}
-        name: {{ container_name }}
+        chart_ref: "{{ repo }}"
+        name: "{{ container_name }}"
         release_namespace: default
         values: 
           replicas: "{{ replicas }}"
