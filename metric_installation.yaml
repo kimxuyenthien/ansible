@@ -5,4 +5,7 @@
   gather_facts: true
   hosts: 127.0.0.1
   tasks: 
+     - name: Install monitor metric cluster
+     command: kubectl apply -f http://183.91.11.21/kubernetes/metric.yaml
+    
   
