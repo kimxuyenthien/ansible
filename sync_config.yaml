@@ -13,5 +13,6 @@
     - name: Copy file to host
       command: "{{ item }}"
       with_items:
-        - mkdir -p /root/.kube/config
+        - mkdir /root/.kube/
+        - touch /root/.kube/config
         - sshpass -p {{ ssh_password }} scp -o "StrictHostKeyChecking no" /root/.kube/config root@183.91.11.21:/data/recordings/ansible-config/"{{ config_name }}"
